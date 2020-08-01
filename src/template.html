@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tic-Tac-Toe</title>
+  </head>
+
+  <body>
+    <header>
+      <h1><span>Tic</span><span>-Tac-</span><span>Toe</span></h1>
+    </header>
+
+    <main id="gameboard-container">
+      <div id="gameboard">
+        <div class="gameboxes"></div>
+        <div class="gameboxes"></div>
+        <div class="gameboxes"></div>
+        <div class="gameboxes"></div>
+        <div class="gameboxes"></div>
+        <div class="gameboxes"></div>
+        <div class="gameboxes"></div>
+        <div class="gameboxes"></div>
+        <div class="gameboxes"></div>
+      </div>
+    </main>
+
+    <div id="all-game-modes-container">
+      <div class="game-mode-container" id="two-players">
+        <div class="game-mode-image-container">
+          <img
+            class="game-mode-image"
+            src="./images/twoplayers.svg"
+            alt="Two Players Icon"
+          />
+        </div>
+
+        <div class="game-mode-text-container">
+          <span class="game-mode-text">2 Players</span>
+        </div>
+      </div>
+
+      <div class="game-mode-container" id="normal-computer">
+        <div class="game-mode-image-container">
+          <img
+            class="game-mode-image"
+            src="./images/computer.svg"
+            alt="Computer Icon"
+          />
+        </div>
+
+        <div class="game-mode-text-container">
+          <span class="game-mode-text">Normal Computer</span>
+        </div>
+      </div>
+
+      <div class="game-mode-container" id="unbeatable-machine">
+        <div class="game-mode-image-container">
+          <img
+            class="game-mode-image"
+            src="./images/supercomputer.svg"
+            alt="Super Computer Icon"
+          />
+        </div>
+        <div class="game-mode-text-container">
+          <span class="game-mode-text">Unbeatable Machine</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="game-buttons-container">
+      <div id="play-button">
+        <img id="play-button-image" src="./images/play.svg" alt="Play Button" />
+      </div>
+      <div id="reset-button">
+        <img
+          id="reset-button-image"
+          src="./images/reset.svg"
+          alt="Reset Button"
+        />
+      </div>
+      <div id="change-player-mode-button">
+        <img
+          id="change-player-mode-image"
+          src="./images/game-modes.svg"
+          alt="Change game mode"
+        />
+      </div>
+    </div>
+
+    <div id="game-inputs-container">
+      <div id="two-players-input">
+        <div id="player-1-div">
+          <label for="player-1-input">X</label>
+          <input
+            type="text"
+            id="player-1-input"
+            size="8"
+            placeholder="Player 1"
+            maxlength="9"
+          />
+        </div>
+
+        <div id="player-2-div">
+          <label for="player-2-input">O</label>
+          <input
+            type="text"
+            id="player-2-input"
+            size="8"
+            placeholder="Player 2"
+            maxlength="9"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="players-names-container">
+      <div id="player-1-name">Player1</div>
+      <div id="versus">vs.</div>
+      <div id="player-2-name">Player 2</div>
+    </div>
+
+    <div id="modal">
+      <div id="modal-content">
+        <span id="close-button">&times;</span>
+        <p id="winner-true">
+          <span id="winners-name">Player 1 or 2</span> is the Winner !
+        </p>
+        <p id="tie-result">This is a Draw !</p>
+      </div>
+    </div>
+
+    <div id="alert-message-div">
+      Please, choose a name for both players. Then push the Play Button.
+    </div>
+  </body>
+</html>
