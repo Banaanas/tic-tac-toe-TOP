@@ -55,7 +55,7 @@
 <!-- TABLE OF CONTENTS -->
 
 ## About the Project
-Tic-Tac-Toe Game achieved as part of <a href="https://www.theodinproject.com/">The Odin Project - JavaScript curriculum</a>.
+Tic-Tac-Toe Game achieved as part of <a href="https://www.theodinproject.com/">The Odin Project - JavaScript Curriculum</a>.
 
 <p align="center">
   <a href="https://banaanas.github.io/tic-tac-toe-TOP/">
