@@ -7,6 +7,28 @@ import "./styles/index.scss";
 import "./styles/index.css";
 import "./styles/normalize.css";
 
+// Import Images
+import twoPlayersIcon from "./images/twoplayers.svg";
+import computerIcon from "./images/computer.svg";
+import superComputerIcon from "./images/supercomputer.svg";
+import playButtonIcon from "./images/play.svg";
+import resetButtonIcon from "./images/reset.svg";
+import changePlayerButtonIcon from "./images/game-modes.svg";
+
+// Set Images src
+const gameModeIcons = document.querySelectorAll(".game-mode-image");
+const playButtonImg = document.querySelector("#play-button-image");
+const resetButtonImg = document.querySelector("#reset-button-image");
+const changePlayerButtonImg = document.querySelector(
+  "#change-player-mode-image",
+);
+gameModeIcons[0].src = twoPlayersIcon;
+gameModeIcons[1].src = computerIcon;
+gameModeIcons[2].src = superComputerIcon;
+playButtonImg.src = playButtonIcon;
+resetButtonImg.src = resetButtonIcon;
+changePlayerButtonImg.src = changePlayerButtonIcon;
+
 /** * The purpose of this Project was to use the Module Pattern (not ES6 Modules) ** */
 /** * That's why there is 2 Modules, and even one inside another ** */
 
@@ -16,16 +38,20 @@ const PlayerFactory = (name, mark) => ({
   mark,
 });
 
-/* * Display Module (Module Pattern) * */
+/* * Display Module (Module Pattern) - Example * */
 // eslint-disable-next-line no-unused-vars
 const displayModule = (() => {
   // DOM elements
-  const allGameModesContainer = document.querySelector("#all-game-modes-container");
+  const allGameModesContainer = document.querySelector(
+    "#all-game-modes-container",
+  );
   const twoPlayersMode = document.querySelector("#two-players");
   const computerMode = document.querySelector("#normal-computer");
   const superComputerMode = document.querySelector("#unbeatable-machine");
 
-  const gameButtonsContainer = document.querySelector("#game-buttons-container");
+  const gameButtonsContainer = document.querySelector(
+    "#game-buttons-container",
+  );
   const playButton = document.querySelector("#play-button");
   const resetButton = document.querySelector("#reset-button");
 
@@ -34,13 +60,17 @@ const displayModule = (() => {
   const player1Input = document.querySelector("#player-1-input");
   const player2Input = document.querySelector("#player-2-input");
 
-  const playersNamesContainer = document.querySelector("#players-names-container");
+  const playersNamesContainer = document.querySelector(
+    "#players-names-container",
+  );
   const player1Div = document.querySelector("#player-1-div");
   const player2Div = document.querySelector("#player-2-div");
   const player1Name = document.querySelector("#player-1-name");
   const player2Name = document.querySelector("#player-2-name");
 
-  const changePlayerModeButton = document.querySelector("#change-player-mode-button");
+  const changePlayerModeButton = document.querySelector(
+    "#change-player-mode-button",
+  );
 
   const alertMessageDiv = document.querySelector("#alert-message-div");
 
@@ -90,7 +120,7 @@ const displayModule = (() => {
       const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
       // Return array of available/possible moves
-      const possiblemovesArray = () => {
+      const possibleMovesArray = () => {
         const computerPossiblesChoicesArray = [];
         // eslint-disable-next-line no-shadow
         gameBoardArray.forEach((item, index) => {
@@ -104,30 +134,30 @@ const displayModule = (() => {
       // Check minimax() result
       const minimaxCheckWin = (player) => {
         if (
-          (gameBoardArray[0] === player.mark
-                    && gameBoardArray[1] === player.mark
-                    && gameBoardArray[2] === player.mark)
-                || (gameBoardArray[3] === player.mark
-                && gameBoardArray[4] === player.mark
-                && gameBoardArray[5] === player.mark)
-                || (gameBoardArray[6] === player.mark
-                && gameBoardArray[7] === player.mark
-                && gameBoardArray[8] === player.mark)
-                || (gameBoardArray[0] === player.mark
-                && gameBoardArray[3] === player.mark
-                && gameBoardArray[6] === player.mark)
-                || (gameBoardArray[1] === player.mark
-                && gameBoardArray[4] === player.mark
-                && gameBoardArray[7] === player.mark)
-                || (gameBoardArray[2] === player.mark
-                && gameBoardArray[5] === player.mark
-                && gameBoardArray[8] === player.mark)
-                || (gameBoardArray[0] === player.mark
-                && gameBoardArray[4] === player.mark
-                && gameBoardArray[8] === player.mark)
-                || (gameBoardArray[2] === player.mark
-                && gameBoardArray[4] === player.mark
-                && gameBoardArray[6] === player.mark)
+          (gameBoardArray[0] === player.mark &&
+            gameBoardArray[1] === player.mark &&
+            gameBoardArray[2] === player.mark) ||
+          (gameBoardArray[3] === player.mark &&
+            gameBoardArray[4] === player.mark &&
+            gameBoardArray[5] === player.mark) ||
+          (gameBoardArray[6] === player.mark &&
+            gameBoardArray[7] === player.mark &&
+            gameBoardArray[8] === player.mark) ||
+          (gameBoardArray[0] === player.mark &&
+            gameBoardArray[3] === player.mark &&
+            gameBoardArray[6] === player.mark) ||
+          (gameBoardArray[1] === player.mark &&
+            gameBoardArray[4] === player.mark &&
+            gameBoardArray[7] === player.mark) ||
+          (gameBoardArray[2] === player.mark &&
+            gameBoardArray[5] === player.mark &&
+            gameBoardArray[8] === player.mark) ||
+          (gameBoardArray[0] === player.mark &&
+            gameBoardArray[4] === player.mark &&
+            gameBoardArray[8] === player.mark) ||
+          (gameBoardArray[2] === player.mark &&
+            gameBoardArray[4] === player.mark &&
+            gameBoardArray[6] === player.mark)
         ) {
           return true;
         }
@@ -137,7 +167,7 @@ const displayModule = (() => {
       // Return best supercomputer's move
       const minimax = (player) => {
         // Array of available moves
-        const availableMoves = possiblemovesArray();
+        const availableMoves = possibleMovesArray();
 
         if (minimaxCheckWin(player1)) {
           return { score: -10 };
@@ -202,72 +232,72 @@ const displayModule = (() => {
       const winnerCheck = (player) => {
         // If winning combination, currentPlayer wins
         if (
-          gameBoardArray[0] === player.mark
-          && gameBoardArray[1] === player.mark
-          && gameBoardArray[2] === player.mark
+          gameBoardArray[0] === player.mark &&
+          gameBoardArray[1] === player.mark &&
+          gameBoardArray[2] === player.mark
         ) {
           gameBoardDOM[0].classList.add("winning-boxes");
           gameBoardDOM[1].classList.add("winning-boxes");
           gameBoardDOM[2].classList.add("winning-boxes");
           playerWins = true;
         } else if (
-          gameBoardArray[3] === player.mark
-          && gameBoardArray[4] === player.mark
-          && gameBoardArray[5] === player.mark
+          gameBoardArray[3] === player.mark &&
+          gameBoardArray[4] === player.mark &&
+          gameBoardArray[5] === player.mark
         ) {
           gameBoardDOM[3].classList.add("winning-boxes");
           gameBoardDOM[4].classList.add("winning-boxes");
           gameBoardDOM[5].classList.add("winning-boxes");
           playerWins = true;
         } else if (
+          gameBoardArray[6] === player.mark &&
+          gameBoardArray[7] === player.mark &&
+          gameBoardArray[8] === player.mark
+        ) {
+          gameBoardDOM[6].classList.add("winning-boxes");
+          gameBoardDOM[7].classList.add("winning-boxes");
+          gameBoardDOM[8].classList.add("winning-boxes");
+          playerWins = true;
+        } else if (
+          gameBoardArray[0] === player.mark &&
+          gameBoardArray[3] === player.mark &&
           gameBoardArray[6] === player.mark
-          && gameBoardArray[7] === player.mark
-          && gameBoardArray[8] === player.mark
-        ) {
-          gameBoardDOM[6].classList.add("winning-boxes");
-          gameBoardDOM[7].classList.add("winning-boxes");
-          gameBoardDOM[8].classList.add("winning-boxes");
-          playerWins = true;
-        } else if (
-          gameBoardArray[0] === player.mark
-          && gameBoardArray[3] === player.mark
-          && gameBoardArray[6] === player.mark
         ) {
           gameBoardDOM[0].classList.add("winning-boxes");
           gameBoardDOM[3].classList.add("winning-boxes");
           gameBoardDOM[6].classList.add("winning-boxes");
           playerWins = true;
         } else if (
-          gameBoardArray[1] === player.mark
-          && gameBoardArray[4] === player.mark
-          && gameBoardArray[7] === player.mark
+          gameBoardArray[1] === player.mark &&
+          gameBoardArray[4] === player.mark &&
+          gameBoardArray[7] === player.mark
         ) {
           gameBoardDOM[1].classList.add("winning-boxes");
           gameBoardDOM[4].classList.add("winning-boxes");
           gameBoardDOM[7].classList.add("winning-boxes");
           playerWins = true;
         } else if (
-          gameBoardArray[2] === player.mark
-          && gameBoardArray[5] === player.mark
-          && gameBoardArray[8] === player.mark
+          gameBoardArray[2] === player.mark &&
+          gameBoardArray[5] === player.mark &&
+          gameBoardArray[8] === player.mark
         ) {
           gameBoardDOM[2].classList.add("winning-boxes");
           gameBoardDOM[5].classList.add("winning-boxes");
           gameBoardDOM[8].classList.add("winning-boxes");
           playerWins = true;
         } else if (
-          gameBoardArray[2] === player.mark
-          && gameBoardArray[4] === player.mark
-          && gameBoardArray[6] === player.mark
+          gameBoardArray[2] === player.mark &&
+          gameBoardArray[4] === player.mark &&
+          gameBoardArray[6] === player.mark
         ) {
           gameBoardDOM[2].classList.add("winning-boxes");
           gameBoardDOM[4].classList.add("winning-boxes");
           gameBoardDOM[6].classList.add("winning-boxes");
           playerWins = true;
         } else if (
-          gameBoardArray[0] === player.mark
-          && gameBoardArray[4] === player.mark
-          && gameBoardArray[8] === player.mark
+          gameBoardArray[0] === player.mark &&
+          gameBoardArray[4] === player.mark &&
+          gameBoardArray[8] === player.mark
         ) {
           gameBoardDOM[0].classList.add("winning-boxes");
           gameBoardDOM[4].classList.add("winning-boxes");
@@ -319,15 +349,15 @@ const displayModule = (() => {
         }
         // Each box can be marked only once
         if (
-          gameBoardDOM[index].textContent === "X"
-          || gameBoardDOM[index].textContent === "O"
+          gameBoardDOM[index].textContent === "X" ||
+          gameBoardDOM[index].textContent === "O"
         ) {
           return;
         }
         // Set player's mark on clicked box (if player is neither computer nor supercomputer)
         if (
-          currentPlayer.name !== "computer"
-          && currentPlayer.name !== "Super Computer"
+          currentPlayer.name !== "computer" &&
+          currentPlayer.name !== "Super Computer"
         ) {
           gameBoardDOM[index].textContent = currentPlayer.mark;
         }
@@ -360,16 +390,17 @@ const displayModule = (() => {
         /** *** COMPUTER MOVE ** ** */
 
         // Array of possible moves (free boxes)
-        const computerPossiblesChoicesArray = possiblemovesArray();
+        const computerPossiblesChoicesArray = possibleMovesArray();
 
         if (
-          currentPlayer.name === "computer"
-          && computerPossiblesChoicesArray.length > 0
+          currentPlayer.name === "computer" &&
+          computerPossiblesChoicesArray.length > 0
         ) {
           // Random chosen box
-          const computerChoice = computerPossiblesChoicesArray[
-            Math.floor(Math.random() * computerPossiblesChoicesArray.length)
-          ];
+          const computerChoice =
+            computerPossiblesChoicesArray[
+              Math.floor(Math.random() * computerPossiblesChoicesArray.length)
+            ];
 
           // Launch computer attack after some delay in ms
           const asyncComputerMove = async () => {
@@ -394,8 +425,8 @@ const displayModule = (() => {
         /** *** SUPERCOMPUTER MOVE ** ** */
 
         if (
-          currentPlayer.name === "Super Computer"
-          && computerPossiblesChoicesArray.length > 0
+          currentPlayer.name === "Super Computer" &&
+          computerPossiblesChoicesArray.length > 0
         ) {
           // Minimax function called
           const superComputerChoice = minimax(player2);
@@ -403,9 +434,16 @@ const displayModule = (() => {
           // Launch computer attack after some delay in ms
           const asyncSuperComputerMove = async () => {
             await delay(300);
-            gameBoardDOM[superComputerChoice.index].textContent = currentPlayer.mark;
-            gameBoardDOM[superComputerChoice.index].classList.add("player2-move");
-            gameBoardArray.splice(superComputerChoice.index, 1, currentPlayer.mark);
+            gameBoardDOM[superComputerChoice.index].textContent =
+              currentPlayer.mark;
+            gameBoardDOM[superComputerChoice.index].classList.add(
+              "player2-move",
+            );
+            gameBoardArray.splice(
+              superComputerChoice.index,
+              1,
+              currentPlayer.mark,
+            );
 
             // eslint-disable-next-line max-len
             movesArrayNumber += 1; // Increments total movesArray number (to display tie modal when > 8)
@@ -449,8 +487,8 @@ const displayModule = (() => {
 
   const startGame = () => {
     if (
-      (gameMode === "twoPlayers" && player1Input.value === "")
-      || (gameMode === "twoPlayers" && player2Input.value === "")
+      (gameMode === "twoPlayers" && player1Input.value === "") ||
+      (gameMode === "twoPlayers" && player2Input.value === "")
     ) {
       alertMessage(
         "Please, choose a Name for both Players. Then push the Play Button.",
