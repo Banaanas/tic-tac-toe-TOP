@@ -145,7 +145,7 @@ Distributed under the MIT License. See <a href="./LICENSE">`LICENSE`</a> for mor
 
 ## Contact
 
-Cyrilo - [Personal Website](https://cyrilo.dev) - cyrilo.dev@gmail.com
+Cyrilo - [Personal Website](https://cyrilo.dev) - [Mail](mailto:cyrilo.dev@gmail.com)
 
 Project Link: [https://github.com/Banaanas/tic-tac-toe-TOP](https://github.com/Banaanas/tic-tac-toe-TOP)
 
