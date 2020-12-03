@@ -1,6 +1,6 @@
 const paths = require("./paths");
 
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -36,8 +36,8 @@ module.exports = {
     // Generates an HTML file from a template
     // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
     new HtmlWebpackPlugin({
-      title: "Tic-Tac-Toe",
-      favicon: paths.src + "/images/favicon.svg",
+      title: "development-project",
+      favicon: paths.src + "/images/favicon.ico",
       template: paths.src + "/template.html", // template file
       filename: "index.html", // output file
     }),
@@ -47,7 +47,7 @@ module.exports = {
   module: {
     rules: [
       // JavaScript: Use Babel to transpile JavaScript files
-      {test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"]},
+      { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
 
       // Styles: Inject CSS into the head with source maps
       {
@@ -56,18 +56,41 @@ module.exports = {
           "style-loader",
           {
             loader: "css-loader",
-            options: {sourceMap: true, importLoaders: 1},
+            options: { sourceMap: true, importLoaders: 1 },
           },
-          {loader: "postcss-loader", options: {sourceMap: true}},
-          {loader: "sass-loader", options: {sourceMap: true}},
+          { loader: "postcss-loader", options: { sourceMap: true } },
+          { loader: "sass-loader", options: { sourceMap: true } },
         ],
       },
 
-      // Images: Copy image files to build folder
-      {test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource"},
+      /**
+       * Images
+       *
+       * Copy image files to build folder.
+       */
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg|webp|svg)$/i,
+        loader: "file-loader",
+        options: {
+          name: "[path][name].[ext].[hash]",
+          context: "src", // prevent display of src/ in filename
+        },
+      },
 
-      // Fonts and SVGs: Inline files
-      {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline"},
+      /**
+       * Fonts
+       *
+       * Inline font files.
+       */
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|)$/,
+        loader: "url-loader",
+        options: {
+          limit: 8192,
+          name: "[path][name].[hash].[ext]",
+          context: "src", // prevent display of src/ in filename
+        },
+      },
     ],
   },
 };
