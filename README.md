@@ -31,7 +31,7 @@
     </a>
 </p>
 
-<h1 align="center">:x: Tic-Tac-Toe :o:</h1>
+<h1 align="center">❌ Tic-Tac-Toe ⭕</h1>
 
 <p align="center">
     Sparkling and funny Tic-Tac-Toe Game.<br/><br/>
