@@ -120,7 +120,7 @@ git clone https://github.com/Banaanas/tic-tac-toe-TOP.git
 2 - Install NPM Packages / Dependencies
 
 ```sh
-npm install
+npm run start
 ```
 
 3 - Development Server
