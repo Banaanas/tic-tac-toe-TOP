@@ -69,7 +69,7 @@ Tic-Tac-Toe Game achieved as part of <a href="https://www.theodinproject.com/">T
 - Human Player vs. Normal Computer ;
 - 2 Players Mode ;
 - Great User Interface ;
-- Responsive design.
+- Responsive Design.
 
 <p align="center">
   <a href="https://tic-tac-toe.cyrilo.app/">
