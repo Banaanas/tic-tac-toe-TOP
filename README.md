@@ -151,8 +151,6 @@ Project Link: [https://github.com/Banaanas/tic-tac-toe-TOP](https://github.com/B
 ## Acknowledgements
 
 - [The Odin Project](https://www.theodinproject.com/)
-- [GitHub Pages](https://pages.github.com)
-- [Flaticon](https://www.flaticon.com/)
 - [The Coding Train](https://www.youtube.com/watch?v=trKjYdBASyQ&vl)
 - [FreeCodeCamp](https://www.youtube.com/watch?v=P2TcQ3h0ipQ&t)
 
