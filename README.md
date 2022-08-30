@@ -85,21 +85,10 @@ Tic-Tac-Toe Game achieved as part of <a href="https://www.theodinproject.com/">T
 
 #### Built With
 
-- [Vanilla JavaScript](http://vanilla-js.com/)
-
-ES6 - Factory Functions - Recursion - Async / Await<br>
-<span>&#9888;</span> One of the purposes of this project was to use the Module Pattern and IIFE (before learning ES6 Modules) <span>&#9888;</span>
-
-- [HTML5](https://www.w3.org/html/)
-- [CSS3](https://www.w3.org/Style/CSS/Overview.html)
-
-Grid - Flexbox - Media Queries
-
+- [JavaScript](http://vanilla-js.com/)
+- [HTML](https://www.w3.org/html/)
+- [CSS](https://www.w3.org/Style/CSS/Overview.html)
 - [Webpack](https://webpack.js.org/)
-- [Babel](https://babeljs.io/)
-- [core-js](https://github.com/zloirock/core-js)
-- [ESLint](https://eslint.org/)
-- [stylelint](https://stylelint.io/)
 
 
 <!-- GETTING STARTED -->
